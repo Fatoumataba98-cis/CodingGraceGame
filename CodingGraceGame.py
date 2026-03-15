@@ -579,7 +579,7 @@ def start_new_adventure(player_info_arg):
         elif door.startswith("gold"):
             room_result = gold_room(player_info_arg)
         else:
-            print("Please choose red, blue, green, purple, black, or gold."))
+            print("Please choose red, blue, green, purple, black, or gold.")
             # Continue the loop so the player can try again.
             continue
 
