@@ -443,6 +443,64 @@ def green_magic_room(player_info_arg):
 
 # ===========================================================================
 # CONTROL FUNCTIONS
+
+def purple_room(player_info_arg):
+    print("\nYou entered the Purple Room.")
+
+    player_info_arg["location"] = "Purple Room"
+    player_info_arg["health"] = player_info_arg["health"] + 10
+    player_info_arg["choices"].append("Purple Room")
+
+    show_player_info(player_info_arg)
+
+    choice = input("Type explore or flee: ").lower()
+
+    if choice == "explore":
+        print("You found a peaceful crystal cave.")
+        return player_info_arg
+    elif choice == "flee":
+        return "flee"
+    else:
+        you_died("You touched a dangerous crystal")
+
+
+def black_room(player_info_arg):
+    print("\nYou entered the Black Room.")
+
+    player_info_arg["location"] = "Black Room"
+    player_info_arg["health"] = player_info_arg["health"] - 15
+    player_info_arg["choices"].append("Black Room")
+
+    show_player_info(player_info_arg)
+
+    choice = input("Type candle or flee: ").lower()
+
+    if choice == "candle":
+        print("You light the candle and find the way out.")
+        return player_info_arg
+    elif choice == "flee":
+        return "flee"
+    else:
+        you_died("A shadow monster got you")
+
+
+def gold_room(player_info_arg):
+    print("\nYou entered the Gold Room.")
+
+    player_info_arg["location"] = "Gold Room"
+    player_info_arg["health"] = player_info_arg["health"] + 5
+    player_info_arg["choices"].append("Gold Room")
+
+    show_player_info(player_info_arg)
+
+    answer = input("What has keys but can't open locks? ").lower()
+
+    if answer == "piano":
+        you_won("You solved the riddle")
+    elif answer == "flee":
+        return "flee"
+    else:
+        you_died("Wrong answer")
 # ===========================================================================
 
 def get_player_name(player_info_arg):
